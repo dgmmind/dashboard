@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Minimalista</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+<!-- Dashboard Container -->
+<div class="dgm-dashboard">
+    <!-- Sidebar Navigation -->
+    <aside class="dgm-sidebar">
+        <div class="dgm-sidebar__header">
+            <div class="dgm-logo">
+                <i data-feather="layers"></i>
+                <span class="dgm-logo__text">Dashboard</span>
+            </div>
+        </div>
+
+        <nav class="dgm-nav">
+            <ul class="dgm-nav__list">
+                <li class="dgm-nav__item">
+                    <a href="#" class="dgm-nav__link dgm-nav__link--active">
+                        <i data-feather="home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="dgm-nav__item">
+                    <a href="#" class="dgm-nav__link">
+                        <i data-feather="users"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+                <li class="dgm-nav__item">
+                    <a href="#" class="dgm-nav__link">
+                        <i data-feather="bar-chart-2"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="dgm-nav__item">
+                    <a href="#" class="dgm-nav__link">
+                        <i data-feather="folder"></i>
+                        <span>Proyectos</span>
+                    </a>
+                </li>
+                <li class="dgm-nav__item">
+                    <a href="#" class="dgm-nav__link">
+                        <i data-feather="settings"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="dgm-sidebar__footer">
+            <div class="dgm-user">
+                <div class="dgm-user__avatar">
+                    <i data-feather="user"></i>
+                </div>
+                <div class="dgm-user__info">
+                    <span class="dgm-user__name">Usuario</span>
+                    <span class="dgm-user__role">Admin</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="dgm-main">
+        <!-- Header -->
+        <header class="dgm-header">
+            <div class="dgm-header__left">
+                <button class="dgm-btn dgm-btn--ghost dgm-sidebar-toggle">
+                    <i data-feather="menu"></i>
+                </button>
+                <h1 class="dgm-header__title">Dashboard</h1>
+            </div>
+
+            <div class="dgm-header__center">
+                <!-- Search Bar -->
+                <div class="dgm-search">
+                    <div class="dgm-search__input-wrapper">
+                        <i data-feather="search" class="dgm-search__icon"></i>
+                        <input
+                                type="text"
+                                class="dgm-search__input"
+                                placeholder="Buscar..."
+                                id="searchInput"
+                        >
+                        <button class="dgm-search__clear" id="clearSearch">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="dgm-search__results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <div class="dgm-header__right">
+                <button class="dgm-btn dgm-btn--ghost">
+                    <i data-feather="bell"></i>
+                </button>
+                <button class="dgm-btn dgm-btn--ghost">
+                    <i data-feather="moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <main class="dgm-content">
+            <!-- Stats Cards -->
+            <div class="dgm-stats">
+                <div class="dgm-card dgm-stat-card">
+                    <div class="dgm-stat-card__icon dgm-stat-card__icon--primary">
+                        <i data-feather="users"></i>
+                    </div>
+                    <div class="dgm-stat-card__content">
+                        <h3 class="dgm-stat-card__value">1,234</h3>
+                        <p class="dgm-stat-card__label">Usuarios Activos</p>
+                    </div>
+                </div>
+
+                <div class="dgm-card dgm-stat-card">
+                    <div class="dgm-stat-card__icon dgm-stat-card__icon--success">
+                        <i data-feather="trending-up"></i>
+                    </div>
+                    <div class="dgm-stat-card__content">
+                        <h3 class="dgm-stat-card__value">$12,345</h3>
+                        <p class="dgm-stat-card__label">Ingresos</p>
+                    </div>
+                </div>
+
+                <div class="dgm-card dgm-stat-card">
+                    <div class="dgm-stat-card__icon dgm-stat-card__icon--warning">
+                        <i data-feather="shopping-cart"></i>
+                    </div>
+                    <div class="dgm-stat-card__content">
+                        <h3 class="dgm-stat-card__value">567</h3>
+                        <p class="dgm-stat-card__label">Pedidos</p>
+                    </div>
+                </div>
+
+                <div class="dgm-card dgm-stat-card">
+                    <div class="dgm-stat-card__icon dgm-stat-card__icon--danger">
+                        <i data-feather="alert-circle"></i>
+                    </div>
+                    <div class="dgm-stat-card__content">
+                        <h3 class="dgm-stat-card__value">23</h3>
+                        <p class="dgm-stat-card__label">Alertas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons Section -->
+            <div class="dgm-section">
+                <h2 class="dgm-section__title">Acciones Rápidas</h2>
+                <div class="dgm-actions">
+                    <button class="dgm-action-btn dgm-action-btn--primary">
+                        <div class="dgm-action-btn__icon">
+                            <i data-feather="plus"></i>
+                        </div>
+                        <span class="dgm-action-btn__text">Crear Nuevo</span>
+                    </button>
+
+                    <button class="dgm-action-btn dgm-action-btn--secondary">
+                        <div class="dgm-action-btn__icon">
+                            <i data-feather="upload"></i>
+                        </div>
+                        <span class="dgm-action-btn__text">Subir Archivo</span>
+                    </button>
+
+                    <button class="dgm-action-btn dgm-action-btn--success">
+                        <div class="dgm-action-btn__icon">
+                            <i data-feather="download"></i>
+                        </div>
+                        <span class="dgm-action-btn__text">Exportar</span>
+                    </button>
+
+                    <button class="dgm-action-btn dgm-action-btn--warning">
+                        <div class="dgm-action-btn__icon">
+                            <i data-feather="refresh-cw"></i>
+                        </div>
+                        <span class="dgm-action-btn__text">Sincronizar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="dgm-section">
+                <h2 class="dgm-section__title">Datos Recientes</h2>
+                <div class="dgm-card">
+                    <div class="dgm-table-wrapper">
+                        <table class="dgm-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody id="dataTable">
+                            <tr>
+                                <td>#001</td>
+                                <td>Proyecto Alpha</td>
+                                <td><span class="dgm-badge dgm-badge--success">Activo</span></td>
+                                <td>2024-01-15</td>
+                                <td>
+                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
+                                        <i data-feather="edit"></i>
+                                    </button>
+                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
+                                        <i data-feather="trash-2"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#002</td>
+                                <td>Proyecto Beta</td>
+                                <td><span class="dgm-badge dgm-badge--warning">Pendiente</span></td>
+                                <td>2024-01-14</td>
+                                <td>
+                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
+                                        <i data-feather="edit"></i>
+                                    </button>
+                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
+                                        <i data-feather="trash-2"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Mobile Overlay -->
+<div class="dgm-overlay" id="mobileOverlay"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
