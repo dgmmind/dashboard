@@ -4,246 +4,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Minimalista</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="main.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body>
-<!-- Dashboard Container -->
-<div class="dgm-dashboard">
-    <!-- Sidebar Navigation -->
-    <aside class="dgm-sidebar">
-        <div class="dgm-sidebar__header">
+<body class="dgm-body">
+<!-- Backdrop glassmorphism para modales -->
+<div class="dgm-backdrop" id="backdrop"></div>
+
+<!-- Navbar -->
+<nav class="dgm-navbar">
+    <div class="dgm-navbar-container">
+        <!-- Logo y hamburger menu -->
+        <div class="dgm-navbar-left">
+            <button class="dgm-hamburger" id="hamburgerBtn">
+                <i data-lucide="menu"></i>
+            </button>
             <div class="dgm-logo">
-                <i data-feather="layers"></i>
-                <span class="dgm-logo__text">Dashboard</span>
+                <h2>Dashboard</h2>
             </div>
         </div>
 
-        <nav class="dgm-nav">
-            <ul class="dgm-nav__list">
-                <li class="dgm-nav__item">
-                    <a href="#" class="dgm-nav__link dgm-nav__link--active">
-                        <i data-feather="home"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="dgm-nav__item">
-                    <a href="#" class="dgm-nav__link">
-                        <i data-feather="users"></i>
-                        <span>Usuarios</span>
-                    </a>
-                </li>
-                <li class="dgm-nav__item">
-                    <a href="#" class="dgm-nav__link">
-                        <i data-feather="bar-chart-2"></i>
-                        <span>Analytics</span>
-                    </a>
-                </li>
-                <li class="dgm-nav__item">
-                    <a href="#" class="dgm-nav__link">
-                        <i data-feather="folder"></i>
-                        <span>Proyectos</span>
-                    </a>
-                </li>
-                <li class="dgm-nav__item">
-                    <a href="#" class="dgm-nav__link">
-                        <i data-feather="settings"></i>
-                        <span>Configuración</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Sidebar Footer -->
-        <div class="dgm-sidebar__footer">
-            <div class="dgm-user">
-                <div class="dgm-user__avatar">
-                    <i data-feather="user"></i>
-                </div>
-                <div class="dgm-user__info">
-                    <span class="dgm-user__name">Usuario</span>
-                    <span class="dgm-user__role">Admin</span>
-                </div>
+        <!-- Buscador -->
+        <div class="dgm-search-container">
+            <div class="dgm-search-box">
+                <i data-lucide="search" class="dgm-search-icon"></i>
+                <input type="text" placeholder="Buscar..." class="dgm-search-input">
             </div>
+        </div>
+
+        <!-- Acciones del navbar -->
+        <div class="dgm-navbar-actions">
+            <!-- Toggle dark mode -->
+            <button class="dgm-action-btn" id="themeToggle">
+                <i data-lucide="sun" class="dgm-theme-icon"></i>
+            </button>
+
+            <!-- Notificaciones -->
+            <button class="dgm-action-btn dgm-notification-btn" id="notificationBtn">
+                <i data-lucide="bell"></i>
+                <span class="dgm-notification-badge">3</span>
+            </button>
+
+            <!-- Perfil -->
+            <button class="dgm-action-btn dgm-profile-btn" id="profileBtn">
+                <i data-lucide="user"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Layout principal -->
+<div class="dgm-layout">
+    <!-- Sidebar -->
+    <aside class="dgm-sidebar" id="sidebar">
+        <div class="dgm-sidebar-content">
+            <!-- Navegación principal -->
+            <nav class="dgm-nav">
+                <ul class="dgm-nav-list">
+                    <!-- Dashboard -->
+                    <li class="dgm-nav-item">
+                        <a href="#" class="dgm-nav-link dgm-active">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- Users (expandible) -->
+                    <li class="dgm-nav-item dgm-expandable">
+                        <button class="dgm-nav-link dgm-nav-toggle" data-target="users">
+                            <div class="dgm-nav-link-content">
+                                <i data-lucide="users"></i>
+                                <span>Users</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="dgm-chevron"></i>
+                        </button>
+                        <ul class="dgm-submenu" id="users">
+                            <li><a href="#" class="dgm-submenu-link">Roles</a></li>
+                            <li><a href="#" class="dgm-submenu-link">Permissions</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Sales (expandible) -->
+                    <li class="dgm-nav-item dgm-expandible">
+                        <button class="dgm-nav-link dgm-nav-toggle" data-target="sales">
+                            <div class="dgm-nav-link-content">
+                                <i data-lucide="shopping-cart"></i>
+                                <span>Sales</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="dgm-chevron"></i>
+                        </button>
+                        <ul class="dgm-submenu" id="sales">
+                            <li><a href="#" class="dgm-submenu-link">New Sale</a></li>
+                            <li><a href="#" class="dgm-submenu-link">Reports</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Analytics -->
+                    <li class="dgm-nav-item">
+                        <a href="#" class="dgm-nav-link">
+                            <i data-lucide="bar-chart-3"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+
+                    <!-- Settings -->
+                    <li class="dgm-nav-item">
+                        <a href="#" class="dgm-nav-link">
+                            <i data-lucide="settings"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </aside>
 
-    <!-- Main Content Area -->
-    <div class="dgm-main">
-        <!-- Header -->
-        <header class="dgm-header">
-            <div class="dgm-header__left">
-                <button class="dgm-btn dgm-btn--ghost dgm-sidebar-toggle">
-                    <i data-feather="menu"></i>
-                </button>
-                <h1 class="dgm-header__title">Dashboard</h1>
-            </div>
+    <!-- Main content -->
+    <main class="dgm-main" id="mainContent">
+        <div class="dgm-main-content">
+            <header class="dgm-page-header">
+                <h1>Dashboard</h1>
+                <p>Bienvenido a tu panel de control</p>
+            </header>
 
-            <div class="dgm-header__center">
-                <!-- Search Bar -->
-                <div class="dgm-search">
-                    <div class="dgm-search__input-wrapper">
-                        <i data-feather="search" class="dgm-search__icon"></i>
-                        <input
-                                type="text"
-                                class="dgm-search__input"
-                                placeholder="Buscar..."
-                                id="searchInput"
-                        >
-                        <button class="dgm-search__clear" id="clearSearch">
-                            <i data-feather="x"></i>
-                        </button>
-                    </div>
-                    <div class="dgm-search__results" id="searchResults"></div>
-                </div>
-            </div>
-
-            <div class="dgm-header__right">
-                <button class="dgm-btn dgm-btn--ghost">
-                    <i data-feather="bell"></i>
-                </button>
-                <button class="dgm-btn dgm-btn--ghost">
-                    <i data-feather="moon"></i>
-                </button>
-            </div>
-        </header>
-
-        <!-- Content Area -->
-        <main class="dgm-content">
-            <!-- Stats Cards -->
-            <div class="dgm-stats">
-                <div class="dgm-card dgm-stat-card">
-                    <div class="dgm-stat-card__icon dgm-stat-card__icon--primary">
-                        <i data-feather="users"></i>
-                    </div>
-                    <div class="dgm-stat-card__content">
-                        <h3 class="dgm-stat-card__value">1,234</h3>
-                        <p class="dgm-stat-card__label">Usuarios Activos</p>
-                    </div>
-                </div>
-
-                <div class="dgm-card dgm-stat-card">
-                    <div class="dgm-stat-card__icon dgm-stat-card__icon--success">
-                        <i data-feather="trending-up"></i>
-                    </div>
-                    <div class="dgm-stat-card__content">
-                        <h3 class="dgm-stat-card__value">$12,345</h3>
-                        <p class="dgm-stat-card__label">Ingresos</p>
-                    </div>
-                </div>
-
-                <div class="dgm-card dgm-stat-card">
-                    <div class="dgm-stat-card__icon dgm-stat-card__icon--warning">
-                        <i data-feather="shopping-cart"></i>
-                    </div>
-                    <div class="dgm-stat-card__content">
-                        <h3 class="dgm-stat-card__value">567</h3>
-                        <p class="dgm-stat-card__label">Pedidos</p>
-                    </div>
-                </div>
-
-                <div class="dgm-card dgm-stat-card">
-                    <div class="dgm-stat-card__icon dgm-stat-card__icon--danger">
-                        <i data-feather="alert-circle"></i>
-                    </div>
-                    <div class="dgm-stat-card__content">
-                        <h3 class="dgm-stat-card__value">23</h3>
-                        <p class="dgm-stat-card__label">Alertas</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Action Buttons Section -->
-            <div class="dgm-section">
-                <h2 class="dgm-section__title">Acciones Rápidas</h2>
-                <div class="dgm-actions">
-                    <button class="dgm-action-btn dgm-action-btn--primary">
-                        <div class="dgm-action-btn__icon">
-                            <i data-feather="plus"></i>
-                        </div>
-                        <span class="dgm-action-btn__text">Crear Nuevo</span>
-                    </button>
-
-                    <button class="dgm-action-btn dgm-action-btn--secondary">
-                        <div class="dgm-action-btn__icon">
-                            <i data-feather="upload"></i>
-                        </div>
-                        <span class="dgm-action-btn__text">Subir Archivo</span>
-                    </button>
-
-                    <button class="dgm-action-btn dgm-action-btn--success">
-                        <div class="dgm-action-btn__icon">
-                            <i data-feather="download"></i>
-                        </div>
-                        <span class="dgm-action-btn__text">Exportar</span>
-                    </button>
-
-                    <button class="dgm-action-btn dgm-action-btn--warning">
-                        <div class="dgm-action-btn__icon">
-                            <i data-feather="refresh-cw"></i>
-                        </div>
-                        <span class="dgm-action-btn__text">Sincronizar</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Data Table -->
-            <div class="dgm-section">
-                <h2 class="dgm-section__title">Datos Recientes</h2>
+            <!-- Contenido de ejemplo -->
+            <div class="dgm-content-grid">
                 <div class="dgm-card">
-                    <div class="dgm-table-wrapper">
-                        <table class="dgm-table">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Estado</th>
-                                <th>Fecha</th>
-                                <th>Acciones</th>
-                            </tr>
-                            </thead>
-                            <tbody id="dataTable">
-                            <tr>
-                                <td>#001</td>
-                                <td>Proyecto Alpha</td>
-                                <td><span class="dgm-badge dgm-badge--success">Activo</span></td>
-                                <td>2024-01-15</td>
-                                <td>
-                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
-                                        <i data-feather="edit"></i>
-                                    </button>
-                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
-                                        <i data-feather="trash-2"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#002</td>
-                                <td>Proyecto Beta</td>
-                                <td><span class="dgm-badge dgm-badge--warning">Pendiente</span></td>
-                                <td>2024-01-14</td>
-                                <td>
-                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
-                                        <i data-feather="edit"></i>
-                                    </button>
-                                    <button class="dgm-btn dgm-btn--sm dgm-btn--ghost">
-                                        <i data-feather="trash-2"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h3>Estadísticas</h3>
+                    <p>Contenido de estadísticas aquí</p>
+                </div>
+                <div class="dgm-card">
+                    <h3>Usuarios Activos</h3>
+                    <p>1,234 usuarios conectados</p>
+                </div>
+                <div class="dgm-card">
+                    <h3>Ventas del Mes</h3>
+                    <p>$45,678</p>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
+</div>
+
+<!-- Panel lateral deslizante para notificaciones -->
+<div class="dgm-slide-panel dgm-notification-panel" id="notificationPanel">
+    <div class="dgm-panel-header">
+        <h3>Notificaciones</h3>
+        <button class="dgm-panel-close" id="closeNotificationPanel">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+    <div class="dgm-panel-content">
+        <div class="dgm-notification-item">
+            <div class="dgm-notification-icon">
+                <i data-lucide="mail"></i>
+            </div>
+            <div class="dgm-notification-content">
+                <h4>Nuevo mensaje</h4>
+                <p>Tienes un nuevo mensaje de Juan Pérez</p>
+                <span class="dgm-notification-time">Hace 5 min</span>
+            </div>
+        </div>
+        <div class="dgm-notification-item">
+            <div class="dgm-notification-icon">
+                <i data-lucide="user-plus"></i>
+            </div>
+            <div class="dgm-notification-content">
+                <h4>Nuevo usuario</h4>
+                <p>Se registró un nuevo usuario en el sistema</p>
+                <span class="dgm-notification-time">Hace 15 min</span>
+            </div>
+        </div>
+        <div class="dgm-notification-item">
+            <div class="dgm-notification-icon">
+                <i data-lucide="alert-circle"></i>
+            </div>
+            <div class="dgm-notification-content">
+                <h4>Alerta del sistema</h4>
+                <p>El servidor está funcionando al 95% de capacidad</p>
+                <span class="dgm-notification-time">Hace 1 hora</span>
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- Mobile Overlay -->
-<div class="dgm-overlay" id="mobileOverlay"></div>
+<!-- Panel lateral deslizante para perfil -->
+<div class="dgm-slide-panel dgm-profile-panel" id="profilePanel">
+    <div class="dgm-panel-header">
+        <h3>Perfil</h3>
+        <button class="dgm-panel-close" id="closeProfilePanel">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+    <div class="dgm-panel-content">
+        <div class="dgm-profile-info">
+            <div class="dgm-profile-avatar">
+                <i data-lucide="user"></i>
+            </div>
+            <h4>Juan Pérez</h4>
+            <p>juan.perez@email.com</p>
+        </div>
+        <div class="dgm-profile-menu">
+            <a href="#" class="dgm-profile-menu-item">
+                <i data-lucide="user"></i>
+                <span>Mi Perfil</span>
+            </a>
+            <a href="#" class="dgm-profile-menu-item">
+                <i data-lucide="settings"></i>
+                <span>Configuración</span>
+            </a>
+            <a href="#" class="dgm-profile-menu-item">
+                <i data-lucide="help-circle"></i>
+                <span>Ayuda</span>
+            </a>
+            <a href="#" class="dgm-profile-menu-item dgm-logout">
+                <i data-lucide="log-out"></i>
+                <span>Cerrar Sesión</span>
+            </a>
+        </div>
+    </div>
+</div>
 
-<script src="script.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
