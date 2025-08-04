@@ -1,0 +1,113 @@
+:root {
+    --primary-color: #161618;
+    --secondary-color: #374151;
+
+    --border-color: #262626;
+    --border-color-secondary: #232731;
+    --input-focus: #2a2d37;
+
+    --bg-search: #24262c;
+    --border-search: #232751;
+}
+
+* {
+margin: 0;
+padding: 0;
+}
+
+html {
+box-sizing: border-box;
+font-size: 62.5%;
+font-family: "Roboto", sans-serif;
+}
+*,
+::after,
+::before {
+box-sizing: border-box;
+}
+body {
+/*    background-color: var(--bg-body);*/
+/*    background-color: #f9f9fc;*/
+/*    background-color: #f0f4ff;*/
+font-size: 1.6rem;
+line-height: 2.7rem;
+font-family: 'Roboto', sans-serif;
+}
+a{
+display:inline-flex;
+text-decoration: none;
+}
+ul{
+list-style: none;
+}
+button{
+border: 0;
+outline: 0;
+}
+img{
+width: 100%;
+height: 100%;
+}
+span[icon-data]{
+display: flex;
+}
+span[icon-data] svg{
+width: 1.6rem;
+
+}
+input,select{
+    border: 0;
+    outline: none;
+}
+/* Quitar estilos predeterminados para select */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+}
+
+/* Para dispositivos iOS */
+select::-ms-expand {
+    display: none;
+}
+
+select::-webkit-inner-spin-button,
+select::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Quitar estilos predeterminados para inputs de texto, date, y otros */
+input[type="text"],
+input[type="search"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+}
+
+/* Quitar estilos predeterminados para inputs de número */
+input[type="number"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.tree-wrapper::-webkit-scrollbar {
+    border: none;
+    width: 6px;
+}
+
+.tree-wrapper::-webkit-scrollbar-thumb {
+    background: #EAEEFB;
+    border-radius: 24px;
+}

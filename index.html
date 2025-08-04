@@ -1,231 +1,111 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Minimalista</title>
-    <link rel="stylesheet" href="main.css">
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/js/libraries/snapicons.js"></script>
+    
 </head>
-<body class="dgm-body">
-<!-- Backdrop glassmorphism para modales -->
-<div class="dgm-backdrop" id="backdrop"></div>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-container">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <span class="sn-icon">
+                        <span icon-data="server"></span>
+                    </span>
+                </div>
+                <div class="sidebar-title">
+                    <span>
+                        Noxtbing
+                    </span>
+                </div>
 
-<!-- Navbar -->
-<nav class="dgm-navbar">
-    <div class="dgm-navbar-container">
-        <!-- Logo y hamburger menu -->
-        <div class="dgm-navbar-left">
-            <button class="dgm-hamburger" id="hamburgerBtn">
-                <i data-lucide="menu"></i>
-            </button>
-            <div class="dgm-logo">
-                <h2>Dashboard</h2>
             </div>
-        </div>
-
-        <!-- Buscador -->
-        <div class="dgm-search-container">
-            <div class="dgm-search-box">
-                <i data-lucide="search" class="dgm-search-icon"></i>
-                <input type="text" placeholder="Buscar..." class="dgm-search-input">
-            </div>
-        </div>
-
-        <!-- Acciones del navbar -->
-        <div class="dgm-navbar-actions">
-            <!-- Toggle dark mode -->
-            <button class="dgm-action-btn" id="themeToggle">
-                <i data-lucide="sun" class="dgm-theme-icon"></i>
-            </button>
-
-            <!-- Notificaciones -->
-            <button class="dgm-action-btn dgm-notification-btn" id="notificationBtn">
-                <i data-lucide="bell"></i>
-                <span class="dgm-notification-badge">3</span>
-            </button>
-
-            <!-- Perfil -->
-            <button class="dgm-action-btn dgm-profile-btn" id="profileBtn">
-                <i data-lucide="user"></i>
-            </button>
-        </div>
-    </div>
-</nav>
-
-<!-- Layout principal -->
-<div class="dgm-layout">
-    <!-- Sidebar -->
-    <aside class="dgm-sidebar" id="sidebar">
-        <div class="dgm-sidebar-content">
-            <!-- Navegación principal -->
-            <nav class="dgm-nav">
-                <ul class="dgm-nav-list">
-                    <!-- Dashboard -->
-                    <li class="dgm-nav-item">
-                        <a href="#" class="dgm-nav-link dgm-active">
-                            <i data-lucide="layout-dashboard"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-
-                    <!-- Users (expandible) -->
-                    <li class="dgm-nav-item dgm-expandable">
-                        <button class="dgm-nav-link dgm-nav-toggle" data-target="users">
-                            <div class="dgm-nav-link-content">
-                                <i data-lucide="users"></i>
-                                <span>Users</span>
-                            </div>
-                            <i data-lucide="chevron-right" class="dgm-chevron"></i>
-                        </button>
-                        <ul class="dgm-submenu" id="users">
-                            <li><a href="#" class="dgm-submenu-link">Roles</a></li>
-                            <li><a href="#" class="dgm-submenu-link">Permissions</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Sales (expandible) -->
-                    <li class="dgm-nav-item dgm-expandible">
-                        <button class="dgm-nav-link dgm-nav-toggle" data-target="sales">
-                            <div class="dgm-nav-link-content">
-                                <i data-lucide="shopping-cart"></i>
-                                <span>Sales</span>
-                            </div>
-                            <i data-lucide="chevron-right" class="dgm-chevron"></i>
-                        </button>
-                        <ul class="dgm-submenu" id="sales">
-                            <li><a href="#" class="dgm-submenu-link">New Sale</a></li>
-                            <li><a href="#" class="dgm-submenu-link">Reports</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Analytics -->
-                    <li class="dgm-nav-item">
-                        <a href="#" class="dgm-nav-link">
-                            <i data-lucide="bar-chart-3"></i>
-                            <span>Analytics</span>
-                        </a>
-                    </li>
-
-                    <!-- Settings -->
-                    <li class="dgm-nav-item">
-                        <a href="#" class="dgm-nav-link">
-                            <i data-lucide="settings"></i>
-                            <span>Settings</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </aside>
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <div class="sidebar-toggle">
+                    <button class="sidebar-toggle-button">
+                        <span class="sn-icon">
+                            <span icon-data="sidebar_open"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="header-search">
+                    <input type="text" placeholder="Search"/>
+                    <div class="key-command">
+                        <span class="sn-icon">
+                            <span icon-data="command"></span>
+                        </span>
+                        <span class="key-text sn-icon">K</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+              
+                    <span class="sn-icon">
+                        <span icon-data="bell"></span>
+                    </span>
 
-    <!-- Main content -->
-    <main class="dgm-main" id="mainContent">
-        <div class="dgm-main-content">
-            <header class="dgm-page-header">
+                    <div class="header-user">
+                        <img src="https://demo.bootstrapdash.com/azia/src/img/faces/face1.jpg" alt="logo">
+                        
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </header>
+    
+
+    <main>
+        <div class="main-container">
+            <div class="main-header">
                 <h1>Dashboard</h1>
-                <p>Bienvenido a tu panel de control</p>
-            </header>
-
-            <!-- Contenido de ejemplo -->
-            <div class="dgm-content-grid">
-                <div class="dgm-card">
-                    <h3>Estadísticas</h3>
-                    <p>Contenido de estadísticas aquí</p>
-                </div>
-                <div class="dgm-card">
-                    <h3>Usuarios Activos</h3>
-                    <p>1,234 usuarios conectados</p>
-                </div>
-                <div class="dgm-card">
-                    <h3>Ventas del Mes</h3>
-                    <p>$45,678</p>
-                </div>
             </div>
         </div>
     </main>
-</div>
 
-<!-- Panel lateral deslizante para notificaciones -->
-<div class="dgm-slide-panel dgm-notification-panel" id="notificationPanel">
-    <div class="dgm-panel-header">
-        <h3>Notificaciones</h3>
-        <button class="dgm-panel-close" id="closeNotificationPanel">
-            <i data-lucide="x"></i>
-        </button>
-    </div>
-    <div class="dgm-panel-content">
-        <div class="dgm-notification-item">
-            <div class="dgm-notification-icon">
-                <i data-lucide="mail"></i>
-            </div>
-            <div class="dgm-notification-content">
-                <h4>Nuevo mensaje</h4>
-                <p>Tienes un nuevo mensaje de Juan Pérez</p>
-                <span class="dgm-notification-time">Hace 5 min</span>
-            </div>
-        </div>
-        <div class="dgm-notification-item">
-            <div class="dgm-notification-icon">
-                <i data-lucide="user-plus"></i>
-            </div>
-            <div class="dgm-notification-content">
-                <h4>Nuevo usuario</h4>
-                <p>Se registró un nuevo usuario en el sistema</p>
-                <span class="dgm-notification-time">Hace 15 min</span>
-            </div>
-        </div>
-        <div class="dgm-notification-item">
-            <div class="dgm-notification-icon">
-                <i data-lucide="alert-circle"></i>
-            </div>
-            <div class="dgm-notification-content">
-                <h4>Alerta del sistema</h4>
-                <p>El servidor está funcionando al 95% de capacidad</p>
-                <span class="dgm-notification-time">Hace 1 hora</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Panel lateral deslizante para perfil -->
-<div class="dgm-slide-panel dgm-profile-panel" id="profilePanel">
-    <div class="dgm-panel-header">
-        <h3>Perfil</h3>
-        <button class="dgm-panel-close" id="closeProfilePanel">
-            <i data-lucide="x"></i>
-        </button>
-    </div>
-    <div class="dgm-panel-content">
-        <div class="dgm-profile-info">
-            <div class="dgm-profile-avatar">
-                <i data-lucide="user"></i>
-            </div>
-            <h4>Juan Pérez</h4>
-            <p>juan.perez@email.com</p>
-        </div>
-        <div class="dgm-profile-menu">
-            <a href="#" class="dgm-profile-menu-item">
-                <i data-lucide="user"></i>
-                <span>Mi Perfil</span>
-            </a>
-            <a href="#" class="dgm-profile-menu-item">
-                <i data-lucide="settings"></i>
-                <span>Configuración</span>
-            </a>
-            <a href="#" class="dgm-profile-menu-item">
-                <i data-lucide="help-circle"></i>
-                <span>Ayuda</span>
-            </a>
-            <a href="#" class="dgm-profile-menu-item dgm-logout">
-                <i data-lucide="log-out"></i>
-                <span>Cerrar Sesión</span>
-            </a>
-        </div>
-    </div>
-</div>
-
-<script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.querySelector('.sidebar-toggle-button');
+            const sidebar = document.querySelector('.sidebar');
+            const headerContainer = document.querySelector('.header-container');
+            const main = document.querySelector('main');
+            const sidebarIcon = document.querySelector('.sidebar-toggle-button .sn-icon span');
+            
+            // Función para actualizar el ícono
+            function updateIcon() {
+                const iconName = sidebarIcon.getAttribute('icon-data');
+                if (svgLibrary[iconName]) {
+                    sidebarIcon.innerHTML = svgLibrary[iconName];
+                }
+            }
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('hidden');
+                headerContainer.classList.toggle('sidebar-hidden');
+                main.classList.toggle('sidebar-hidden');
+                
+                // Cambiar el ícono según el estado del sidebar
+                if (sidebar.classList.contains('hidden')) {
+                    sidebarIcon.setAttribute('icon-data', 'sidebar_closed');
+                } else {
+                    sidebarIcon.setAttribute('icon-data', 'sidebar_open');
+                }
+                
+                // Actualizar el ícono inmediatamente
+                updateIcon();
+            });
+        });
+    </script>
 </body>
 </html>
